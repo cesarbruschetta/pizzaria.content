@@ -1,0 +1,27 @@
+Metadata-Version: 1.0
+Name: pizzaria.content
+Version: 1.0
+Summary: Pizzaria Content
+Home-page: https://github.com/cesarbruschetta/pizzaria.content
+Author: Cesar Augusto
+Author-email: cesarbruschetta@hotmail.com
+License: GPL version 2
+Description: Introduction
+        ============
+        
+        Pizzaria Content
+        
+        This product may contain traces of nuts.
+        
+        Changelog
+        =========
+        
+        1.0dev (unreleased)
+        -------------------
+        
+        - Initial release
+        
+Platform: UNKNOWN
+Classifier: Framework :: Plone
+Classifier: Programming Language :: Python
+Classifier: Topic :: Software Development :: Libraries :: Python Modules
