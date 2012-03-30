@@ -8,4 +8,8 @@
   -->
 <object name="portal_types" meta_type="Plone Types Tool">
   <!-- -*- extra stuff goes here -*- -->
+  
+    <object name="pizzaria.content.cliente" meta_type="Dexterity FTI" />
+	<object name="pizzaria.content.produto" meta_type="Dexterity FTI" />
+  
 </object>
