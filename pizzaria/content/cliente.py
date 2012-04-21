@@ -7,7 +7,8 @@ from plone.formwidget.contenttree import ObjPathSourceBinder
 from pizzaria.content import MessageFactory as _
 from z3c.relationfield.schema import RelationChoice
 
-from zope.app.component.hooks import getSite 
+from zope.app.component.hooks import getSite
+from Products.CMFCore.interfaces import ISiteRoot 
 
 from zope.interface import Interface
 
@@ -82,6 +83,39 @@ class ICadastroCliente(form.Schema):
 #        )
 #        
         
+class HomeCliente(grok.View):
+    grok.context(Interface)
+    grok.require('zope2.View')
+    grok.name('home-cliente')
+    
+    def getCadastro(self):
+        membership = getSite().portal_membership
+        user_login = membership.getAuthenticatedMember()
+        try:
+            cadastro= getSite()['clientes'][user_login.id]
+        except:
+            cadastro= None
+            
+        return cadastro
+    
+    def getProduto(self):
+        urltool = getSite().portal_url
+        caminho = urltool.getPortalPath()+'/cardapio';
+        ctool = getSite().portal_catalog
+        items = ctool(portal_type='pizzaria.content.produto', 
+                      review_state='published',
+                      path=caminho)        
+        return items
 
         
+    
+        
+class HomeFuncionario(grok.View):
+    grok.context(Interface)
+    grok.require('zope2.View')
+    grok.name('home-funcionario')
+    
+    
+    
+    
         

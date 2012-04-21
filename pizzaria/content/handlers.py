@@ -35,9 +35,9 @@ def userupdate(event):
     else:
         
         url = getSite().absolute_url() + '/home-funcionario'
-        
-            
-            
+      
     request.other["came_from"] = url
-    request.form["came_from"] = url
+    #request.form["came_from"] = url
     request.response.redirect(url, lock=True)
+    
+    

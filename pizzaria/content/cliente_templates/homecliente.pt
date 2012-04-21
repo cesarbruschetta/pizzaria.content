@@ -1,0 +1,48 @@
+<html>
+    <body metal:use-macro="here/main_template/macros/master">
+        <div metal:fill-slot="main" tal:define="cadastro view/getCadastro|nothing;
+        										produtos view/getProduto|nothing">
+			<h2>Área do Clientes</h2>
+			<br />
+			<h3 tal:content="string: Ola, ${cadastro/title|nothing}">Ola,Usuario </h3>
+			<fieldset id="seus-dados" tal:condition="cadastro|nothing">
+				<legend> Seus dados</legend>
+				<span>Telefone: <span tal:content="cadastro/telefone|nothing"></span></span><br />
+				<span>Endereco: <span tal:content="cadastro/endereco|nothing" /> - 
+							<span tal:content="cadastro/bairro|nothing" /> </span><br />
+				<span>Cidade: <span tal:content="cadastro/cidade|nothing"></span></span><br />	
+				<span>Estado: <span tal:content="cadastro/estado|nothing"></span></span><br />
+				<span>CEP: <span tal:content="cadastro/cep|nothing"></span></span><br />
+				
+				<br />
+				<a tal:attributes="href string:${cadastro/absolute_url|nothing}/edit">Editar os Dados</a>
+			</fieldset>
+			
+			<fieldset id="produtos" tal:condition="produtos|nothing">
+				<legend>Nossos Produtos</legend>
+				<tal:rep repeat="item produtos">
+					<tal:def define="obj item/getObject">
+						<div id="list-prod">
+							<p >
+								<a tal:content="obj/title" tal:attributes="href obj/absolute_url">
+								</a>
+							</p>	
+							<span tal:content="obj/description"></span>
+							
+						</div>
+						
+						
+					</tal:def>
+					
+					
+				</tal:rep>
+
+
+
+			</fieldset>
+			
+			
+			
+        </div>
+    </body>
+</html>

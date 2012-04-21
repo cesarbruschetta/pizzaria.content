@@ -1,0 +1,7 @@
+<html>
+    <body metal:use-macro="here/main_template/macros/master">
+        <div metal:fill-slot="content-core">
+			<h2>Área do Funcionarios</h2>
+        </div>
+    </body>
+</html>
